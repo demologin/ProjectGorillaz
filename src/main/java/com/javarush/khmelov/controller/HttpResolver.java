@@ -10,7 +10,7 @@ public class HttpResolver {
         //   /cmd-example
         try {
             String requestURI = request.getRequestURI();
-            requestURI = requestURI.equals("/") ? "/start-page" : requestURI;
+            requestURI = requestURI.equals("/") ? "/home" : requestURI;
             String kebabName = requestURI.split("[?#/]")[1];
             String simpleName = convertKebabStyleToCamelCase(kebabName);
             String fullName = Command.class.getPackageName() + "." + simpleName;
