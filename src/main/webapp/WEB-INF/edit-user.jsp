@@ -14,9 +14,12 @@
                          src="images/${requestScope.user.image}"
                          width="150"
                          alt="${requestScope.user.image}">
-                    <input id="image"
-                           name="image"
-                           class="input-file" type="file"/>
+                    <p>Hint: Это версия без JS
+                        <br> Нет мгновенного обновления картинки
+                        <br> Удобнее сделано в signup.jsp
+                        <input id="image"
+                               name="image"
+                               class="input-file" type="file"/>
                 </label>
             </div>
             <!-- Text input-->
@@ -46,7 +49,7 @@
                            placeholder="your password"
                            class="form-control input-md"
                            required="">
-                    <span class="help-block">min 8 symb</span>
+                    <span class="help-block">min 8 symbols</span>
                 </div>
             </div>
 

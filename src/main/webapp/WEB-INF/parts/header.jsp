@@ -34,8 +34,18 @@
                     <li class="nav-item"><a class="nav-link" href="#create-quest">Создать квест</a>
                     </li>
                 </ul>
-                <a class="btn btn-primary ms-md-2" role="button" href="#">Login</a>
-                <a class="btn btn-primary ms-md-2" role="button" href="#">Signup</a>
+                <ul class="nav col-md-3 text-end">
+                    <c:choose>
+                        <c:when test="${not empty sessionScope.user}">
+                            <li><a href="profile" class="btn btn-info ms-md-2">Profile</a></li>
+                            <li><a href="logout" class="btn btn-danger ms-md-2">Logout</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="login" class="btn btn-primary ms-md-2">Login</a></li>
+                            <li><a href="signup" class="btn btn-primary ms-md-2">Sign-up</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </ul>
             </div>
         </div>
     </nav>

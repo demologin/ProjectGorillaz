@@ -4,6 +4,7 @@ import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.entity.User;
 import com.javarush.khmelov.service.ImageService;
 import com.javarush.khmelov.service.UserService;
+import com.javarush.khmelov.util.Key;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
@@ -18,11 +19,11 @@ public class EditUser implements Command {
 
     @Override
     public String doGet(HttpServletRequest req) {
-        String stringId = req.getParameter("id");
+        String stringId = req.getParameter(Key.ID);
         if (stringId != null) {
             long id = Long.parseLong(stringId);
             userService.get(id)
-                    .ifPresent(user -> req.setAttribute("user", user));
+                    .ifPresent(user -> req.setAttribute(Key.USER, user));
         }
         return getView();
     }
@@ -30,17 +31,14 @@ public class EditUser implements Command {
     @Override
     @SneakyThrows
     public String doPost(HttpServletRequest req) {
+        long id = Long.parseLong(req.getParameter(Key.ID));
         User user = User.builder()
-                .login(req.getParameter("login"))
-                .password(req.getParameter("password"))
-                .role(Role.valueOf(req.getParameter("role")))
+                .id(id)
+                .login(req.getParameter(Key.LOGIN))
+                .password(req.getParameter(Key.PASSWORD))
+                .role(Role.valueOf(req.getParameter(Key.ROLE)))
                 .build();
-        if (req.getParameter("create") != null) {
-            userService.create(user);
-        } else if (req.getParameter("update") != null) {
-            user.setId(Long.parseLong(req.getParameter("id")));
-            userService.update(user);
-        }
+        userService.update(user);
         imageService.uploadImage(req, user.getImage());
         return getView() + "?id=" + user.getId();
     }

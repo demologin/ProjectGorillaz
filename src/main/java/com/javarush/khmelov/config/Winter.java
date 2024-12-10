@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Winter {
 
-    public static ConcurrentHashMap<Class<?>, Object> components = new ConcurrentHashMap<>();
+    public final static ConcurrentHashMap<Class<?>, Object> components = new ConcurrentHashMap<>();
 
 
     @SuppressWarnings("unchecked")
