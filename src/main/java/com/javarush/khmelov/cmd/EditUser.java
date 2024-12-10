@@ -2,37 +2,33 @@ package com.javarush.khmelov.cmd;
 
 import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.entity.User;
+import com.javarush.khmelov.service.ImageService;
 import com.javarush.khmelov.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
-
-import java.util.Optional;
+import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 
 
 @SuppressWarnings("unused")
+@AllArgsConstructor
 public class EditUser implements Command {
 
     private final UserService userService;
-
-    public EditUser(UserService userService) {
-        this.userService = userService;
-    }
-
+    private final ImageService imageService;
 
     @Override
     public String doGet(HttpServletRequest req) {
         String stringId = req.getParameter("id");
         if (stringId != null) {
             long id = Long.parseLong(stringId);
-            Optional<User> optionalUser = userService.get(id);
-            if (optionalUser.isPresent()) {
-                User user = optionalUser.get();
-                req.setAttribute("user", user);
-            }
+            userService.get(id)
+                    .ifPresent(user -> req.setAttribute("user", user));
         }
         return getView();
     }
 
     @Override
+    @SneakyThrows
     public String doPost(HttpServletRequest req) {
         User user = User.builder()
                 .login(req.getParameter("login"))
@@ -45,8 +41,7 @@ public class EditUser implements Command {
             user.setId(Long.parseLong(req.getParameter("id")));
             userService.update(user);
         }
+        imageService.uploadImage(req, user.getImage());
         return getView() + "?id=" + user.getId();
     }
-
-
 }

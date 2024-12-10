@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpServletRequest;
 public class HttpResolver {
 
     public Command resolve(HttpServletRequest request) {
-        //   /cmd-example
         try {
             String requestURI = request.getRequestURI();
             requestURI = requestURI.equals("/") ? "/home" : requestURI;
