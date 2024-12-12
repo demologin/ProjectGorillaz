@@ -1,10 +1,12 @@
 package com.javarush.khmelov.controller;
 
 import com.javarush.khmelov.cmd.Command;
+import com.javarush.khmelov.config.Config;
 import com.javarush.khmelov.config.Winter;
 import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.util.Go;
 import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -34,8 +36,12 @@ public class FrontController extends HttpServlet {
     }
 
     @Override
-    public void init(ServletConfig config) {
-        config.getServletContext().setAttribute("roles", Role.values());
+    public void init(ServletConfig servletConfig) {
+        Config config = Winter.find(Config.class);
+        config.fillEmptyRepository();
+
+        ServletContext servletContext = servletConfig.getServletContext();
+        servletContext.setAttribute("roles", Role.values());
     }
 
     private static String getJsp(String view) {
