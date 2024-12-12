@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <c:import url="parts/header.jsp"/>
+<c:import url="parts/header.jsp"/>
+<body>
 <div class="container">
     <form action="create-quest" method="post">
 
@@ -22,22 +24,22 @@
                         class="btn btn-success">Создать квест
                 </button>
                 <button id="jruDemo" name="create"
-                        class="btn btn-danger">Заполнить пример
+                        class="btn btn-danger">Хочу этот пример!
                 </button>
             </div>
         </div>
     </form>
 </div>
 
-    <script>
-        //это чисто для отладки фрагмент
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('jruDemo').addEventListener('click', function(event) {
-                event.preventDefault(); // Предотвращаем отправку формы и заполняем форму примерными данными
-                document.getElementById('quest-name').value = 'JRU квест';
-                document.getElementById('questTextareaDomId').value =`<%@include file="./parts/quest-jru.txt"%>`;
-            });
+<script>
+    //это чисто для отладки фрагмент
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('jruDemo').addEventListener('click', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы и заполняем форму примерными данными
+            document.getElementById('quest-name').value = 'Проверим твои знания арифметики';
+            document.getElementById('questTextareaDomId').value =`<%@include file="./parts/quest-math.txt"%>`;
         });
-    </script>
+    });
+</script>
 <c:import url="parts/footer.jsp"/>
 
