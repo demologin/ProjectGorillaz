@@ -19,6 +19,7 @@ import java.io.IOException;
         Go.INDEX, Go.HOME,
         Go.SIGNUP, Go.LOGIN, Go.LOGOUT,
         Go.LIST_USER, Go.PROFILE, Go.EDIT_USER,
+        Go.CREATE
 })
 public class FrontController extends HttpServlet {
 

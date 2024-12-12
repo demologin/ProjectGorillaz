@@ -31,7 +31,7 @@
                     <li class="nav-item"><a class="nav-link" href="#statistics">Статистика</a></li>
                     <li class="nav-item"><a class="nav-link" href="list-user">Пользователи</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#create-quest">Создать квест</a>
+                    <li class="nav-item"><a class="nav-link" href="create-quest">Создать квест</a>
                     </li>
                 </ul>
                 <ul class="nav col-md-3 text-end">
