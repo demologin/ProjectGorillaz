@@ -9,18 +9,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User implements AbstractEntity {
-
+public class Game implements AbstractEntity {
     private Long id;
 
-    private String login;
+    private Long questId;
 
-    private String password;
+    private Long userId;
 
-    private Role role;
+    private Long currentQuestionId;
 
-    public String getImage() { //TODO move to DTO
-        return "user-" + id;
-    }
-
+    private GameState gameState;
 }
