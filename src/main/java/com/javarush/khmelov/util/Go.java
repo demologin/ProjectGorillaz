@@ -15,5 +15,5 @@ public class Go {
     public static final String CREATE = "/create-quest";
     public static final String QUEST = "/quest";
     public static final String STAT = "/stat";
-    public static final String GAME = "/game";
+    public static final String PLAY_GAME = "/play-game";
 }
