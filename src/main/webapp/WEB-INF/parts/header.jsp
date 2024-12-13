@@ -23,11 +23,12 @@
                         </svg></span><span>UnionService</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-5">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Главная</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Заявки</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/start-page">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/requests-list">Заявки</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Third Item</a></li>
                 </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Button</a>
             </div>
         </div>
     </nav>
 </header>
+<section>

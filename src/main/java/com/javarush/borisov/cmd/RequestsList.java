@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-
-public class requests extends HttpServlet {
+@WebServlet ("/requests-list")
+public class RequestsList extends HttpServlet {
     String table = """
             <div class="table-responsive" style="margin-top: 78.375px;border-top-style: ridge;">
                 <table class="table">
@@ -32,10 +32,14 @@ public class requests extends HttpServlet {
                     </tbody>
                 </table>
             </div>""";
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        req.setAttribute("tbl",table);
-//        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/requestsList.jsp");
-//        dispatcher.forward(req, resp);
-//    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+
+            //req.setAttribute("tbl",table);
+            req.getRequestDispatcher("/WEB-INF/requests-list.jsp").forward(req, resp);
+
+
+    }
 }

@@ -10,12 +10,12 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet ("/")
+@WebServlet ("")
 public class MainController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/start-page").forward(req, resp);
 
-       resp.sendRedirect("/start-page");
     }
 
     @Override
