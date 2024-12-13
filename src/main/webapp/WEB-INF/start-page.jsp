@@ -1,8 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="head.jsp"%>
-<body>
+
+
+<%@include file="parts/header.jsp" %>
+
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
 <a href="list-user">List Users</a>
-</body>
+
+<%@include file="parts/footer.jsp" %>
