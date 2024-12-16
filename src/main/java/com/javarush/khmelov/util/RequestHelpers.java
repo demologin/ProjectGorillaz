@@ -33,4 +33,8 @@ public class RequestHelpers {
                 .ofNullable(session.getAttribute(Key.USER))
                 .map(User.class::cast); // equivalent to .map(u -> (User) u);
     }
+
+    public static void createError(HttpServletRequest request, String errorMessage) {
+        request.getSession().setAttribute(Key.ERROR_MESSAGE, errorMessage);
+    }
 }

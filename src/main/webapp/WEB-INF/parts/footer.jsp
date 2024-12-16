@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${not empty sessionScope.errorMessage}">
+    <h5 class="mb-1 alert-danger">${sessionScope.errorMessage}</h5>
+</c:if>
 <footer class="text-center bg-dark">
     <div class="container text-white py-4 py-lg-5">
         <ul class="list-inline">

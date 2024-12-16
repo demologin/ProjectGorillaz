@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://logging.apache.org/log4j/2.0/config
+               https://raw.githubusercontent.com/apache/logging-log4j2/master/log4j-core/src/main/resources/Log4j-config.xsd"
+               strict="true"
+               status="WARN"
+               monitorInterval="30">
+
+    <Properties>
+        <Property name="SPRING"
+                  value="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}.%M(%F:%L): %msg%n%throwable"/>
+    </Properties>
+    <Appenders>
+        <Console name="SpringConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="${sys:SPRING}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="SpringConsole"/>
+        </Root>
+    </Loggers>
+</Configuration>

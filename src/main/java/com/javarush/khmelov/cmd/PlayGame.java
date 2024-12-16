@@ -9,10 +9,12 @@ import com.javarush.khmelov.util.Go;
 import com.javarush.khmelov.util.Key;
 import com.javarush.khmelov.util.RequestHelpers;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
 @SuppressWarnings("unused")
+@Slf4j
 public class PlayGame implements Command {
 
     private final GameService gameService;
@@ -34,11 +36,15 @@ public class PlayGame implements Command {
                 showOneQuestion(request, game.get());
                 return getView();
             } else {
-                createError(request, "Нет незавершенной игры");
+                String message = "Нет незавершенной игры";
+                log.warn(message);
+                RequestHelpers.createError(request, message);
                 return Go.HOME;
             }
         } else {
-            createError(request, "Сначала нужно войти в аккаунт");
+            String message = "Сначала нужно войти в аккаунт";
+            log.warn(message);
+            RequestHelpers.createError(request, message);
             return Go.LOGIN;
         }
     }
@@ -50,12 +56,16 @@ public class PlayGame implements Command {
         Optional<Game> game = gameService.processOneStep(gameId, answerId);
         if (game.isPresent()) {
             if (answerId == 0) {
-                createError(request, "Нужно выбрать какой-то ответ");
+                String message = "Нужно выбрать какой-то ответ";
+                log.warn(message);
+                RequestHelpers.createError(request, message);
             }
             Game currentGame = game.get();
             return "%s?questId=%d&id=%d".formatted(Go.PLAY_GAME, game.get().getQuestId(), game.get().getId());
         } else {
-            createError(request, "Нет такой игры");
+            String message = "Нет такой игры";
+            log.warn(message);
+            RequestHelpers.createError(request, message);
             return Go.HOME;
         }
     }
@@ -66,7 +76,4 @@ public class PlayGame implements Command {
         request.setAttribute(Key.QUESTION, question.orElseThrow());
     }
 
-    private static void createError(HttpServletRequest request, String errorMessage) {
-        request.getSession().setAttribute(Key.ERROR_MESSAGE, errorMessage);
-    }
 }
