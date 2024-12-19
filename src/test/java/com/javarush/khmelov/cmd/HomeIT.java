@@ -1,5 +1,6 @@
 package com.javarush.khmelov.cmd;
 
+import com.javarush.khmelov.BaseIT;
 import com.javarush.khmelov.config.Winter;
 import com.javarush.khmelov.util.Key;
 import org.junit.jupiter.api.Assertions;
