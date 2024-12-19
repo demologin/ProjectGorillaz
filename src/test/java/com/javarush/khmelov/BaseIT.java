@@ -1,7 +1,7 @@
 package com.javarush.khmelov;
 
 import com.javarush.khmelov.config.Config;
-import com.javarush.khmelov.config.Winter;
+import com.javarush.khmelov.config.NanoSpring;
 import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.entity.User;
 import jakarta.servlet.ServletConfig;
@@ -26,7 +26,7 @@ public class BaseIT {
 
     protected BaseIT() {
         //app config
-        config = Winter.find(Config.class);
+        config = NanoSpring.find(Config.class);
         config.fillEmptyRepository();
         //servlet config
         servletConfig = mock(ServletConfig.class);

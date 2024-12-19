@@ -2,7 +2,7 @@ package com.javarush.khmelov.controller;
 
 import com.javarush.khmelov.cmd.Command;
 import com.javarush.khmelov.config.Config;
-import com.javarush.khmelov.config.Winter;
+import com.javarush.khmelov.config.NanoSpring;
 import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.exception.AppException;
 import com.javarush.khmelov.util.Go;
@@ -31,11 +31,11 @@ import java.io.IOException;
 })
 public class FrontController extends HttpServlet {
 
-    private final HttpResolver httpResolver = Winter.find(HttpResolver.class);
+    private final HttpResolver httpResolver = NanoSpring.find(HttpResolver.class);
 
     @Override
     public void init(ServletConfig servletConfig) {
-        Config config = Winter.find(Config.class);
+        Config config = NanoSpring.find(Config.class);
         config.fillEmptyRepository();
 
         ServletContext servletContext = servletConfig.getServletContext();

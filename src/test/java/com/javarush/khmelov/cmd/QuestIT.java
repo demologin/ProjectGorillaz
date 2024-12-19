@@ -1,19 +1,16 @@
 package com.javarush.khmelov.cmd;
 
 import com.javarush.khmelov.BaseIT;
-import com.javarush.khmelov.config.Winter;
+import com.javarush.khmelov.config.NanoSpring;
 import com.javarush.khmelov.util.Go;
 import com.javarush.khmelov.util.Key;
-import jakarta.servlet.ServletException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.io.IOException;
-
 class QuestIT extends BaseIT {
 
-    private final Quest quest = Winter.find(Quest.class);
+    private final Quest quest = NanoSpring.find(Quest.class);
 
     @Test
     void whenOpenQuestPageWithCorrectId_thenGetJsp() {

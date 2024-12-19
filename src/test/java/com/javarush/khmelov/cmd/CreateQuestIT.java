@@ -1,7 +1,7 @@
 package com.javarush.khmelov.cmd;
 
 import com.javarush.khmelov.BaseIT;
-import com.javarush.khmelov.config.Winter;
+import com.javarush.khmelov.config.NanoSpring;
 import com.javarush.khmelov.entity.Role;
 import com.javarush.khmelov.entity.User;
 import com.javarush.khmelov.service.QuestService;
@@ -14,8 +14,8 @@ import static org.mockito.Mockito.when;
 
 class CreateQuestIT extends BaseIT {
 
-    private final CreateQuest createQuest = Winter.find(CreateQuest.class);
-    private final QuestService questService = Winter.find(QuestService.class);
+    private final CreateQuest createQuest = NanoSpring.find(CreateQuest.class);
+    private final QuestService questService = NanoSpring.find(QuestService.class);
 
 
     @Test

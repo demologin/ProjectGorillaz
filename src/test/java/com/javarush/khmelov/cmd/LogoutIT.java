@@ -1,13 +1,13 @@
 package com.javarush.khmelov.cmd;
 
 import com.javarush.khmelov.BaseIT;
-import com.javarush.khmelov.config.Winter;
+import com.javarush.khmelov.config.NanoSpring;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 class LogoutIT extends BaseIT {
 
-    private final Logout logout = Winter.find(Logout.class);
+    private final Logout logout = NanoSpring.find(Logout.class);
 
     @Test
     void whenOpenPage_thenInvalidateSession() {
