@@ -55,7 +55,7 @@ public class PlayGame implements Command {
         Long answerId = RequestHelpers.getId(request, Key.ANSWER);
         Optional<Game> game = gameService.processOneStep(gameId, answerId);
         if (game.isPresent()) {
-            if (answerId == 0) {
+            if (answerId == 0 && request.getParameter(Key.GAME) != null) {
                 String message = "Нужно выбрать какой-то ответ";
                 log.warn(message);
                 RequestHelpers.createError(request, message);
@@ -75,5 +75,4 @@ public class PlayGame implements Command {
         Optional<Question> question = questionService.get(game.getCurrentQuestionId());
         request.setAttribute(Key.QUESTION, question.orElseThrow());
     }
-
 }

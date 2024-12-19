@@ -7,7 +7,7 @@ import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,19 +24,19 @@ public class ImageService {
             ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".webp"
     );
 
-    public final Path WEB_INF = Paths.get(URI.create(
-                    Objects.requireNonNull(
-                            ImageService.class.getResource("/")
-                    ).toString()))
-            .getParent();
-
-    private final Path imagesFolder = WEB_INF.resolve(IMAGES_FOLDER);
+    private final Path imagesFolder;
 
     @SneakyThrows
     public ImageService() {
+        URL url = ImageService.class.getResource("/");
+        Path startPath = Paths.get(Objects.requireNonNull(url).toURI());
+        String webInf = "WEB-INF";
+        Path webPath = startPath.getParent().endsWith(webInf)
+                ? startPath.getParent()        //run in tomcat (webapp/WEB-INF)
+                : startPath.resolve(webInf);   //embedded tomcat (resources/WEB-INF)
+        imagesFolder = webPath.resolve(IMAGES_FOLDER);
         Files.createDirectories(imagesFolder);
     }
-
 
     @SneakyThrows
     public Path getImagePath(String filename) {
@@ -58,6 +58,15 @@ public class ImageService {
         }
     }
 
+    @SneakyThrows
+    private void uploadImageInternal(String name, InputStream data) {
+        try (data) {
+            if (data.available() > 0) {
+                Files.copy(data, imagesFolder.resolve(name), StandardCopyOption.REPLACE_EXISTING);
+            }
+        }
+    }
+
     private void deleteOldFiles(String filename) {
         EXTENSIONS.stream()
                 .map(ext -> imagesFolder.resolve(filename + ext))
@@ -69,15 +78,6 @@ public class ImageService {
                         throw new RuntimeException(e);
                     }
                 });
-    }
-
-    @SneakyThrows
-    private void uploadImageInternal(String name, InputStream data) {
-        try (data) {
-            if (data.available() > 0) {
-                Files.copy(data, imagesFolder.resolve(name), StandardCopyOption.REPLACE_EXISTING);
-            }
-        }
     }
 
 }

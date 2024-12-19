@@ -24,11 +24,16 @@ import java.util.Map;
         Go.CREATE, Go.QUEST})
 public class AuthorizationFilter extends HttpFilter {
 
-    Map<Role, List<String>> permissions = Map.of(
-            Role.GUEST, List.of(Go.HOME, Go.SIGNUP, Go.LOGIN),
-            Role.USER, List.of(Go.HOME, Go.SIGNUP, Go.LOGIN,
+    private final Map<Role, List<String>> permissions = Map.of(
+            Role.GUEST,
+            List.of(Go.HOME, Go.SIGNUP, Go.LOGIN),
+
+            Role.USER,
+            List.of(Go.HOME, Go.SIGNUP, Go.LOGIN,
                     Go.LOGOUT, Go.LIST_USER, Go.PROFILE, Go.EDIT_USER, Go.PLAY_GAME),
-            Role.ADMIN, List.of(Go.HOME, Go.SIGNUP, Go.LOGIN,
+
+            Role.ADMIN,
+            List.of(Go.HOME, Go.SIGNUP, Go.LOGIN,
                     Go.LOGOUT, Go.LIST_USER, Go.PROFILE, Go.EDIT_USER, Go.PLAY_GAME,
                     Go.CREATE, Go.QUEST)
     );
