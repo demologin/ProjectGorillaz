@@ -19,23 +19,27 @@ import java.util.Map;
 
 @Slf4j
 @WebFilter({
-        Go.INDEX, Go.HOME, Go.SIGNUP, Go.LOGIN,
-        Go.LOGOUT, Go.LIST_USER, Go.PROFILE, Go.EDIT_USER, Go.PLAY_GAME,
-        Go.CREATE, Go.QUEST})
+        Go.INDEX, Go.HOME,
+        Go.SIGNUP, Go.LOGIN, Go.LOGOUT,
+        Go.LIST_USER, Go.PROFILE, Go.EDIT_USER,
+        Go.CREATE_QUEST, Go.QUEST,
+        Go.PLAY_GAME,
+        Go.STATISTICS
+})
 public class AuthorizationFilter extends HttpFilter {
 
     private final Map<Role, List<String>> permissions = Map.of(
-            Role.GUEST,
-            List.of(Go.HOME, Go.SIGNUP, Go.LOGIN),
-
-            Role.USER,
-            List.of(Go.HOME, Go.SIGNUP, Go.LOGIN,
-                    Go.LOGOUT, Go.LIST_USER, Go.PROFILE, Go.EDIT_USER, Go.PLAY_GAME),
-
-            Role.ADMIN,
-            List.of(Go.HOME, Go.SIGNUP, Go.LOGIN,
-                    Go.LOGOUT, Go.LIST_USER, Go.PROFILE, Go.EDIT_USER, Go.PLAY_GAME,
-                    Go.CREATE, Go.QUEST)
+            Role.GUEST, List.of(
+                    Go.HOME, Go.INDEX, Go.LOGIN, Go.SIGNUP, Go.STATISTICS
+            ),
+            Role.USER, List.of(
+                    Go.HOME, Go.INDEX, Go.LOGIN, Go.SIGNUP, Go.STATISTICS,
+                    Go.PROFILE, Go.LOGOUT, Go.EDIT_USER, Go.PLAY_GAME, Go.QUEST
+            ),
+            Role.ADMIN, List.of(
+                    Go.HOME, Go.INDEX, Go.LOGIN, Go.SIGNUP, Go.STATISTICS,
+                    Go.PROFILE, Go.LOGOUT, Go.EDIT_USER, Go.PLAY_GAME, Go.QUEST,
+                    Go.LIST_USER, Go.CREATE_QUEST)
     );
 
     @Override
