@@ -1,18 +1,14 @@
 [
   {
-    "name" : "ПБФ",
-    "contragentRequests" : [ ]
+    "name" : "ПБФ"
   },
   {
-    "name" : "Страйк",
-    "contragentRequests" : [ ]
+    "name" : "Страйк"
   },
   {
-    "name" : "Хендз",
-    "contragentRequests" : [ ]
+    "name" : "Хендз"
   },
   {
-    "name" : "Диасофт",
-    "contragentRequests" : [ ]
+    "name" : "Диасофт"
   }
 ]

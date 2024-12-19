@@ -29,6 +29,7 @@ public class RequestsList implements Command {
             </div><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
              <div class="collapse navbar-collapse" id="navcol-1">
                            <ul class="navbar-nav">
+                           <li class="nav-item"><a class="nav-link" href="#"><strong>В РАБОТЕ</strong></a></li>
             """;
     private String contragentBarTop;
     private String getContragentBarData;
@@ -41,18 +42,31 @@ public class RequestsList implements Command {
             </section>
             <section>
                 <div class="table-responsive" style="margin-top: 78.375px;border-top-style: ridge;">
-                    <table class="table">
+                    <table class="table" >
                         <thead style="/*position: fixed;*/width: 100%;border-top-style: ridge;">
                         <tr>
             """;
     private String tableHeadData = """
-                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Column 1</th>
-                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Column 2</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Номер<br>заявки</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Заказчик</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Телефон</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Адрес</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Модель установленного<br>оборудования</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">С/Н установленного<br> оборудования</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Модель снятого<br>оборудования</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">С/Н снятого<br>оборудования</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Статус</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Дата<br>поступления</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Дата<br>выполнения</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Печать</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Изменить</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Закрыть</th>
+                <tbody id = "reqTable" style="border-top-style: ridge;">
+                    
             """;
 
     private String tableData = """
-                    <tbody style="border-top-style: ridge;">
-                    <tr style="border-top-style: ridge;">
+                    
                         <td style="border-width: 3px;border-style: outset;">Cell 1</td>
                         <td style="border-width: 3px;border-style: outset;">Cell 2</td>
                     </tr>
@@ -60,11 +74,12 @@ public class RequestsList implements Command {
                         <td style="border-width: 3px;border-style: outset;">Cell 3</td>
                         <td style="border-width: 3px;border-style: outset;">Cell 4</td>
                     </tr>
-                    </tbody>
-                </table>
-            </div>
+                    
             """;
     private final String tableLow = """
+              </tbody>
+                </table>
+            </div>
               </tr>
                         </thead>
               </tbody>
@@ -101,12 +116,12 @@ public class RequestsList implements Command {
     private String getReqByDate() {
 
         StringBuilder result = new StringBuilder();
-        Map<String, List<String>> allDatesWeGot = db.allDatesWeGot();
-        for (Map.Entry<String, List<String>> stringListEntry : allDatesWeGot.entrySet()) {
+        Map<Integer, List<Integer>> allDatesWeGot = db.allDatesWeGot();
+        for (Map.Entry<Integer, List<Integer>> stringListEntry : allDatesWeGot.entrySet()) {
             result.append("<li class=\"dropdown\"><a class=\"dropdown-item dropdown-toggle\" href=\"#\">")
                     .append(stringListEntry.getKey())
                     .append("</a><ul class=\"dropdown-menu\">");
-            for (String month : stringListEntry.getValue()) {
+            for (Integer month : stringListEntry.getValue()) {
                 result.append("<li><a class=\"dropdown-item\" href=\"#\">")
                         .append(month)
                         .append("</a></li>");
