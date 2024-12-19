@@ -7,6 +7,7 @@ import com.javarush.borisov.config.ClassCreator;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,7 +15,7 @@ import jdk.jfr.Name;
 
 import java.io.IOException;
 
-@WebServlet ({"","/","/start-page","/requests-list"})
+@WebServlet({"", "/start-page", "/requests-list"})
 public class MainController extends HttpServlet {
 
     private final HttpResolver httpResolver = ClassCreator.get(HttpResolver.class);

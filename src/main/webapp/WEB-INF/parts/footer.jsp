@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-</section>
+
 <footer>
     <footer class="text-center bg-dark" style="position: fixed;bottom: 0;left: 0;width: 100%;">
         <div class="container text-white py-4 py-lg-5">

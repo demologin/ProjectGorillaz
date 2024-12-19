@@ -30,5 +30,21 @@
             </div>
         </div>
     </nav>
+    <style>
+        /* Расположение подменю справа */
+        .dropdown-menu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-left: 0.1rem;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        /* Показ подменю при наведении */
+        .dropdown:hover > .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu > .dropdown:hover > .dropdown-menu {
+            display: block;
+        }
+    </style>
 </header>
-<section>

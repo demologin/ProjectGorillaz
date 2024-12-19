@@ -64,17 +64,42 @@
         </dependency>
 
     </dependencies>
-
     <build>
-
-
-
         <plugins>
+
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+
+                    <executions>
+                        <execution>
+                            <phase>process-resources</phase>
+                            <configuration>
+                                <tasks>
+                                    <copy todir="${project.build.outputDirectory}">
+                                        <fileset dir="src/main/resources" includes="**/*" casesensitive="false" />
+                                        <fileset dir="src/main/resources" includes="**/" defaultexcludes="false" />
+                                    </copy>
+                                </tasks>
+                            </configuration>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.4.0</version>
+                <configuration>
+                    <includeEmptyDirectories>true</includeEmptyDirectories>
+                </configuration>
             </plugin>
+
         </plugins>
     </build>
+
 </project>
