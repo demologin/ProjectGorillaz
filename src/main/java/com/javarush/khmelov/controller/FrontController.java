@@ -2,7 +2,6 @@ package com.javarush.khmelov.controller;
 
 import com.javarush.khmelov.cmd.Command;
 import com.javarush.khmelov.config.Winter;
-import com.javarush.khmelov.entity.Role;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,10 +11,17 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet({"", "/home", "/list-user", "/edit-user"})
+import static com.javarush.khmelov.storage.ConstantsCommon.*;
+
+@WebServlet({GO_EMPTY_ADRESS, GO_HOME, GO_START, GO_QUEST, GO_QUIZ,
+        GO_ROULETTE, GO_LOGIN_ENTRANCE, GO_LOGIN_REGISTRATION})
 public class FrontController extends HttpServlet {
 
     private final HttpResolver httpResolver = Winter.find(HttpResolver.class);
+
+    private static String getJsp(String view) {
+        return "/WEB-INF/" + view + ".jsp";
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,11 +33,7 @@ public class FrontController extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) {
-        config.getServletContext().setAttribute("roles", Role.values());
-    }
 
-    private static String getJsp(String view) {
-        return "/WEB-INF/" + view + ".jsp";
     }
 
     @Override

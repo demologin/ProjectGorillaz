@@ -1,0 +1,161 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Orbitron", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Верхняя часть */
+
+.header .login {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Центрирование текста в .login */
+    text-align: center;
+    height: auto; /* Убедитесь, что высота не ограничивает */
+    margin: 0; /* Убрать лишние отступы */
+}
+
+.header .left-part p,
+.header .login {
+    margin: 0; /* Убрать отступы */
+    line-height: 1.5; /* Выравнивание текста */
+}
+
+
+.header {
+    background-color: #333333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Равномерно распределяет пространство */
+}
+
+.header .left-part {
+    flex: 2; /* Задает пропорцию для left-part */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Добавляем расстояние между элементами */
+}
+
+.header .left-part p {
+    margin: 0;
+}
+
+.header .left-part span {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+}
+
+.header .left-part {
+    width: 66.67%; /* 2/3 ширины контейнера */
+}
+
+.header .right-part {
+    flex: 1; /* Задает пропорцию для right-part */
+    display: flex;
+    justify-content: flex-end; /* Элементы прижимаются к правому краю */
+    gap: 10px; /* Расстояние между кнопками */
+}
+
+.header .auth input,
+.header .auth button {
+    margin: 5px 0;
+    width: 100%;
+}
+
+.header .auth button {
+    width: calc(50% - 10px); /* Ширина в 50%, минус отступы */
+    background-color: #000000;
+    border: none;
+    color: white;
+}
+
+.header .auth .register-btn {
+    float: left;
+}
+
+.header .auth .enter-btn {
+    float: right;
+}
+
+.header .auth button:hover {
+    background-color: #000000;
+}
+
+
+/* Средняя часть */
+.main {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    flex: 1;
+}
+
+.main h1 {
+    margin-bottom: 40px;
+    font-size: 36px;
+}
+
+.games {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.game {
+    flex: 1;
+    max-width: 30%;
+    padding: 20px;
+    cursor: pointer;
+    background-color: rgb(51, 51, 51);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game img {
+    border: none; /* Убирает рамки вокруг изображения */
+    display: block; /* Убирает лишние пробелы */
+    width: 100%; /* Подгоняет изображение под контейнер */
+    height: auto; /* Сохраняет пропорции изображения */
+}
+
+.game p {
+    margin-top: 20px;
+    color: white;
+    font-size: 18px;
+}
+
+.game:hover {
+    background-color: rgb(51, 51, 51);
+}
+
+.game a {
+    color: white; /* Цвет текста ссылки */
+    text-decoration: none; /* Убирает подчёркивание */
+    transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
+.game a:hover {
+    color: gray; /* Цвет текста ссылки при наведении */
+}
+
+/* Нижняя часть */
+.footer {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+
+
+
+

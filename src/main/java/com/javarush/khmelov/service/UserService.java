@@ -1,12 +1,13 @@
 package com.javarush.khmelov.service;
 
-import com.javarush.khmelov.repository.UserRepository;
 import com.javarush.khmelov.entity.User;
+import com.javarush.khmelov.storage.repository.UserRepository;
 
 import java.util.Collection;
 import java.util.Optional;
 
 public class UserService {
+
 
     private final UserRepository userRepository;
 
@@ -18,14 +19,6 @@ public class UserService {
         userRepository.create(user);
     }
 
-    public void update(User user) {
-        userRepository.update(user);
-    }
-
-    public void delete(User user) {
-        userRepository.delete(user);
-    }
-
     public Collection<User> getAll() {
         return userRepository.getAll();
     }
@@ -33,4 +26,25 @@ public class UserService {
     public Optional<User> get(long id) {
         return userRepository.get(id);
     }
+
+    public boolean loginOrPasswordIsIncorrect(String login, String password) {
+        Collection<User> users = getAll();
+        for (User user : users) {
+            if (user.getLogin().equals(login) && user.getPassword().equals(password)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isExistLogin(String login) {
+        Collection<User> users = getAll();
+        for (User user : users) {
+            if (user.getLogin().equals(login)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

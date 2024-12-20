@@ -17,7 +17,11 @@ public class User {
 
     private String password;
 
-    private Role role;
+    private int gamesCount;
+
+    private int winsCount;
+
+    private int lossCount;
 
     public String getImage() { //TODO move to DTO
         return "image-" + id;
