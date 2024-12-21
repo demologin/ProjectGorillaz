@@ -3,6 +3,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 tomcat.*/
+jte-classes/
 
 ### IntelliJ IDEA ###
 .idea/
