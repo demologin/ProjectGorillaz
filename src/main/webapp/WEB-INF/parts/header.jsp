@@ -25,9 +25,19 @@
             <div class="collapse navbar-collapse" id="navcol-5">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="/start-page">Главная</a></li>
+                    <c:if test="${sessionScope.user.role == 'ADMIN' || sessionScope.user.role == 'ENGINEER' || sessionScope.user.role == 'COORDINATOR'}">
                     <li class="nav-item"><a class="nav-link" href="/requests-list">Заявки</a></li>
+                    </c:if>
+                    <c:if test="${sessionScope.user.role == 'ADMIN' }">
                     <li class="nav-item"><a class="nav-link" href="#">Third Item</a></li>
-                </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Button</a>
+                    </c:if>
+                </ul>
+                <c:if test="${sessionScope.user == null || sessionScope.user.role == 'GUEST'}">
+                <a class="btn btn-primary ms-md-2" role="button" href="/login">Login</a>
+                </c:if>
+                <c:if test="${sessionScope.user.role == 'ADMIN' || sessionScope.user.role == 'ENGINEER' || sessionScope.user.role == 'COORDINATOR'}">
+                    <a class="btn btn-primary ms-md-2" role="button" href="/start-page?invalidate=1 ">Выйди из профиля</a>
+                </c:if>
             </div>
         </div>
     </nav>

@@ -7,6 +7,9 @@ public interface Command {
     default String doGet(HttpServletRequest req){
         return getView();
     }
+    default String doPost(HttpServletRequest req){
+        return getView();
+    }
 
     default String getView() {
         String simpleName = this.getClass().getSimpleName();
@@ -25,4 +28,5 @@ public interface Command {
         }
         return result.toString();
     }
+
 }

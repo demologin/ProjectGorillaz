@@ -15,7 +15,7 @@ import jdk.jfr.Name;
 
 import java.io.IOException;
 
-@WebServlet({"", "/start-page", "/requests-list"})
+@WebServlet({"", "/start-page", "/requests-list", "/login" })
 public class MainController extends HttpServlet {
 
     private final HttpResolver httpResolver = ClassCreator.get(HttpResolver.class);
@@ -30,7 +30,9 @@ public class MainController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        Command command = httpResolver.resolve(req);
+        String redirect = command.doPost(req);
+        resp.sendRedirect(redirect);
     }
 }
