@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.content img {
+    max-width: 45%;
+    border-radius: 10px;
+}
+
+.text {
+    max-width: 50%;
+    padding: 10px;
+}
+
+.answers {
+    width: 100%;
+    text-align: center;
+}
+
+.answers form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.answers label {
+    display: block;
+    margin: 10px 0;
+}
+
+.answers label input[type="radio"] {
+    margin-right: 5px;
+}
+
+.answers label input[type="text"] {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.answers button {
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.answers button:hover {
+    background-color: #0056b3;
+}
+
+.statistics {
+    width: 90%;
+    max-width: 800px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.statistics h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.statistics p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+.statistics table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: transparent;
+}
+
+.statistics td {
+    width: 50%;
+    vertical-align: top;
+    padding: 10px;
+    border: none;
+}
