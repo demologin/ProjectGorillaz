@@ -17,9 +17,11 @@ public class Request {
     private final String requestNumber;
     private final String customer;
     private String phoneNumber;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy hh:mm")
     private LocalDateTime createDate;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy hh:mm")
+    private LocalDateTime sla;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy hh:mm")
     private LocalDateTime closeDate;
     private String address;
     private Path linkToAktFile;
@@ -31,8 +33,10 @@ public class Request {
     private Map<String,String> parameters;
 
     public Request(Contragent contragent, String requestNumber, String customer, String phoneNumber,
-                   List<Equipment> equipmentsTransferred, List<Equipment> equipmentsReceived, LocalDateTime createDate, LocalDateTime closeDate,
+                   List<Equipment> equipmentsTransferred, List<Equipment> equipmentsReceived, LocalDateTime createDate,
+                   LocalDateTime sla, LocalDateTime closeDate,
                    String address) {
+
         this.contragent = contragent;
         this.requestNumber = requestNumber;
         this.customer = customer;
@@ -40,6 +44,7 @@ public class Request {
         this.equipmentsTransferred = equipmentsTransferred;
         this.equipmentsReceived = equipmentsReceived;
         this.createDate = createDate;
+        this.sla = sla;
         this.closeDate = closeDate;
         this.address = address;
         this.status = RequestStatus.ASSIGNED;

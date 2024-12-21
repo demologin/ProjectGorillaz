@@ -16,7 +16,7 @@ public class RequestsList implements Command {
 
     private final String contragentBarBtnDatesTop = """
                   <section>
-                  <nav class="navbar navbar-expand-md bg-body" style="position: fixed;width: 100%;">
+                  <nav class="navbar navbar-expand-md bg-body" style=width: 100%;">
             <div class="container-fluid">
                  <div class="dropdown">
                                <button class="btn btn-primary dropdown-toggle" type="button" id="mainDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,7 +41,7 @@ public class RequestsList implements Command {
                 </nav>
             </section>
             <section>
-                <div class="table-responsive" style="margin-top: 78.375px;border-top-style: ridge;">
+                <div class="table-responsive" style=border-top-style: ridge;">
                     <table class="table" >
                         <thead style="/*position: fixed;*/width: 100%;border-top-style: ridge;">
                         <tr>
@@ -57,6 +57,7 @@ public class RequestsList implements Command {
                 <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">С/Н снятого<br>оборудования</th>
                 <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Статус</th>
                 <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Дата<br>поступления</th>
+                <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Дата<br>SLA</th>
                 <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Дата<br>выполнения</th>
                 <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Печать</th>
                 <th style="border-width: 3px;border-style: outset;border-bottom-width: 5px;">Изменить</th>

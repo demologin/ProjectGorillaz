@@ -35,7 +35,13 @@ ${requestScope.tableLow}
                         "<td>" + message[i].equipmentsTransferred[0].model + "</td>"+
                         "<td>" + message[i].equipmentsTransferred[0].serialNumber + "</td>"+
                         "<td>" + message[i].equipmentsReceived[0].model + "</td>"+
-                        "<td>" + message[i].equipmentsReceived[0].serialNumber + "</td>"
+                        "<td>" + message[i].equipmentsReceived[0].serialNumber + "</td>"+
+                        "<td>" + message[i].status + "</td>"+
+                        "<td>" + message[i].createDate + "</td>"+
+                        "<td>" + message[i].sla + "</td>"+
+                        "<td>" + "</td>"
+
+
                     ;
 
 
@@ -47,7 +53,24 @@ ${requestScope.tableLow}
             }
         });
     })
-
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     const header = document.getElementById("head");
+    //     const navbar = document.getElementById("navbar");
+    //     const tableHead =  document.getElementById("tableHead");
+    //     const headerHeight = header.offsetHeight;
+    //
+    //     window.addEventListener("scroll", function () {
+    //         if (window.scrollY > headerHeight) {
+    //             navbar.style.position ="fixed";
+    //             navbar.style.top = "0";
+    //
+    //
+    //
+    //         } else {
+    //             navbar.style.position=("relative");
+    //         }
+    //     });
+    // });
         </script>
 
 

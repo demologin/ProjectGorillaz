@@ -2,6 +2,7 @@ package com.javarush.borisov.db;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javarush.borisov.config.ClassCreator;
+import com.javarush.borisov.constants.RequestStatus;
 import com.javarush.borisov.db.DbConfig.MultiKey;
 import com.javarush.borisov.entity.Contragent;
 import com.javarush.borisov.entity.Equipment;
@@ -33,13 +34,16 @@ public class Db {
         allDatesWeGot = allDatesWeGot();
 
 
-        for(int i=0;i<10;i++){
+        for(int i=0;i<100;i++){
             Request request = new Request(contragents.getFirst(), "APOS-123" + "" + i,
-                    "ООО Рога и Копыта","+7-903-258-33-33",List.of(new Equipment("1111","2")),
-                    List.of(new Equipment(null,null)),LocalDateTime.now(),null,
-                    "Г Новокузнецк ул Ленина 21");
+                    "ООО Рога и Копыта","+7-903-258-33-33",List.of(new Equipment("PAX S300","123456")),
+                    List.of(new Equipment(null,null)),LocalDateTime.now(), LocalDateTime.now().plusHours(24),null,
+                    "654044, Кемеровская область, Новокузнецк, р-н Новоильинский, ул Новоселов, 21");
+            request.setStatus(RequestStatus.ASSIGNED);
             requestsToShow.add(request);
+
         }
+
     }
 
     private void calculateAllRequests(List<String> folders) {
