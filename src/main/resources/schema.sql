@@ -1,0 +1,19 @@
+DROP TABLE IF EXISTS users CASCADE;
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(255)
+);
+
+DROP TABLE IF EXISTS games;
+
+CREATE TABLE games (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    user_id INT REFERENCES users(id),
+    win INT,
+    lose INT
+);
